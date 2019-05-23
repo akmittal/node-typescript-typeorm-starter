@@ -1,0 +1,1 @@
+export const getJWTSecret = () => "This is Sparta";

@@ -1,0 +1,15 @@
+{
+    "type": "sqlite",
+    "database": "temp/sqlitedb.db",
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+       "src/models/**/*.ts"
+    ],
+    "migrations": [
+       "src/migration/**/*.ts"
+    ],
+    "subscribers": [
+       "src/subscriber/**/*.ts"
+    ]
+ }
