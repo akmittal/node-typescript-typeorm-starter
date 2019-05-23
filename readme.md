@@ -35,6 +35,7 @@ Optional query params
 
 Returns List of all stocks
 
-### /stock/:stockname GET
+### /stock/:stockname GET (Requires Authorization)
+Send the toen from login as HTTP Header `Authorization`
 
 Returns single stock item
