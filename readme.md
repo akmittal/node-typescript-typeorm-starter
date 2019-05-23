@@ -35,6 +35,6 @@ Optional query params
 
 Returns List of all stocks
 
-/stock/:stockname GET
+### /stock/:stockname GET
 
 Returns single stock item
