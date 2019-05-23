@@ -1,7 +1,5 @@
 import express from "express";
-import {} from "express";
 import { createConnection } from "typeorm";
-import { User } from "./models/user";
 import {
   handleUserLogin,
   handleUserSignup,
