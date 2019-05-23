@@ -3,7 +3,8 @@ import { Stock } from "./../models/stock";
 
 export const getStockList = async (req: Request, res: Response) => {
   try {
-    const{ sortColumn = "name", skip=0, take=10} = req.params;
+    const { sortColumn = "name", skip=0, take=10} = req.query;
+    console.log({sortColumn})
     const stocks = await Stock.find({skip, take, order:{[sortColumn]:"ASC"}});
     res.json(stocks);
   } catch (e) {

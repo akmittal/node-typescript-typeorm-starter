@@ -9,7 +9,7 @@ import { getStockList, getStock, postStock } from "./controllers/stock";
 const app = express();
 app.use(express.json(), express.urlencoded());
 
-const port = 8080; // default port to listen
+const port = process.env.PORT || 3000; // default port to listen
 
 (async () => {
   const connection = await createConnection({
