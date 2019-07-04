@@ -4,19 +4,21 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "start": "pm2 start ts-node -- -P tsconfig.json ./src/index.ts",
+    "start": "ts-node ./src/index.ts",
     "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/cors": "2.8.5",
     "@types/express": "4.16.1",
     "@types/bcrypt": "3.0.0",
     "@types/jsonwebtoken": "8.3.2",
     "bcrypt": "^3.0.6",
     "express": "^4.17.0",
     "jsonwebtoken": "^8.5.1",
+    "cors": "2.8.5",
     "sqlite3": "^4.0.8",
     "ts-node": "^8.1.0",
     "typeorm": "^0.2.17"

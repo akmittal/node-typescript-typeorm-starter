@@ -1,3 +1,4 @@
+import cors from "cors";
 import express from "express";
 import { createConnection } from "typeorm";
 import { getCustomerList, postCustomer } from "./controllers/customer";
@@ -6,7 +7,8 @@ import { getorderList, postorder } from "./controllers/order";
 import { getStock, getStockList, postStock } from "./controllers/stock";
 import { authenticateMiddleware, handleUserLogin, handleUserSignup } from "./controllers/user";
 const app = express();
-app.use(express.json(), express.urlencoded());
+
+app.use(express.json(), express.urlencoded(), cors());
 
 const port = process.env.PORT || 3000; // default port to listen
 
@@ -20,6 +22,10 @@ const port = process.env.PORT || 3000; // default port to listen
     migrations: ["src/migration/**/*.ts"],
     subscribers: ["src/subscriber/**/*.ts"]
   });
+  app.get("/", function(req, res){
+    res.set('Content-Type', 'text/html');
+    res.send(new Buffer('<div style="display:flex;align-items:center;justify-content:center"><h1 style="font-size:14em">👻</h1></div>'));
+});
 
   app.post("/login", handleUserLogin);
   app.post("/signup", handleUserSignup);
