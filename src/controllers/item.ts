@@ -1,11 +1,15 @@
 import { Request, Response } from "express";
 import { Item } from "./../models/item";
+type ReqQuery = { sortColumn : string, skip: number, take: number }
 
-export const getitemList = async (req: Request, res: Response) => {
+export const getitemList = async (req: Request<any, any , any, ReqQuery>, res: Response) => {
   try {
-    const { sortColumn = "name", skip=0, take=10} = req.query;
-    console.log({sortColumn})
-    const items = await Item.find({skip, take, order:{[sortColumn]:"ASC"}});
+    const { sortColumn = "name", skip = 0, take = 10 } = req.query;
+    const items = await Item.find({
+      skip,
+      take,
+      order: { [sortColumn]: "ASC" },
+    });
     res.json(items);
   } catch (e) {
     res.json({ error: e });

@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
 import { Stock } from "./../models/stock";
+type ReqQuery = { sortColumn : string, skip: number, take: number }
 
-export const getStockList = async (req: Request, res: Response) => {
+export const getStockList = async (req: Request<any, any, any, ReqQuery>, res: Response) => {
   try {
     const { sortColumn = "name", skip=0, take=10} = req.query;
     console.log({sortColumn})

@@ -1,11 +1,15 @@
-import { Request, Response } from "express";
+import type { Request, Response } from "express";
 import { Customer } from "./../models/customer";
+type ReqQuery = { sortColumn : string, skip: number, take: number }
 
-export const getCustomerList = async (req: Request, res: Response) => {
+export const getCustomerList = async (req: Request<any, any, any, ReqQuery>, res: Response) => {
   try {
-    const { sortColumn = "name", skip=0, take=10} = req.query;
-    console.log({sortColumn})
-    const stocks = await Customer.find({skip, take, order:{[sortColumn]:"ASC"}});
+    const { sortColumn = "name", skip = 0, take = 10 } = req.query;
+    const stocks = await Customer.find({
+      skip,
+      take,
+      order: { [sortColumn]: "ASC" },
+    });
     res.json(stocks);
   } catch (e) {
     res.json({ error: e });

@@ -3,8 +3,9 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
 import { getJWTSecret } from "./../util";
+type ReqQuery = { sortColumn : string, skip: number, take: number }
 
-export const handleUserLogin = async (req: Request, res: Response) => {
+export const handleUserLogin = async (req: Request<any, any, any, ReqQuery>, res: Response) => {
   const { username, password } = req.body;
   const user = await User.findOne({ where: { username } });
   try {
