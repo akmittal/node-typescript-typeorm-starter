@@ -19,7 +19,7 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "cors": "2.8.5",
-    "sqlite3": "^5.0.2",
+    "sqlite3": "^5.0.3",
     "ts-node": "^10.2.0",
     "typeorm": "^0.2.37"
   },
