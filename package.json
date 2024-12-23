@@ -21,7 +21,7 @@
     "cors": "2.8.5",
     "sqlite3": "^5.0.2",
     "ts-node": "^10.2.0",
-    "typeorm": "^0.2.37"
+    "typeorm": "^0.3.0"
   },
   "devDependencies": {
     "pm2": "^5.1.2",
